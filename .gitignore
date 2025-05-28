@@ -1,0 +1,17 @@
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Word temp files
+~$*
+*.tmp
+*.bak
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+
+# Python (if any scripts later)
+__pycache__/
+*.pyc
