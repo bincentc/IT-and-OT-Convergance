@@ -3,78 +3,122 @@
 **Course:** INCS 4810 – Industrial Network Cybersecurity  
 **Institution:** British Columbia Institute of Technology (BCIT)  
 **Team Members:** Vincent Caluyo, Santiago Juarez, Jayson Peters  
-**Completed:** May 23, 2025
+**Project Duration:** April 28, 2025 – May 28, 2025
 
 ---
 
-## 📖 Project Summary
+## 📖 Executive Summary
 
-This capstone project involved the design, implementation, assessment, and hardening of a converged IT/OT network. Emphasizing real-world relevance, our work adhered to ISA/IEC 62443 standards and integrated technologies commonly found in modern industrial environments. The project demonstrated technical competencies across network engineering, penetration testing, risk assessment, and security infrastructure deployment.
-
----
-
-## 🎯 Objectives
-
-- Design a realistic IT/OT network for simulation and defense
-- Conduct penetration testing to discover exploitable vulnerabilities
-- Implement IEC 62443-compliant architecture with zones and conduits
-- Deploy a variety of defensive tools including firewalls, honeypots, IDS, and endpoint security
-- Showcase practical understanding of integrating cybersecurity into industrial control systems
+This capstone project demonstrates the integration of IT and OT systems within a simulated industrial environment. Designed from the ground up, our project applies real-world cybersecurity methodologies, industry-standard frameworks like ISA/IEC 62443, and active attack/defense cycles to model threats and countermeasures in a converged IT/OT setting. We implemented and tested vulnerabilities in a basic network, then restructured it into a hardened, IEC-compliant architecture.
 
 ---
 
-## 🧩 Project Phases
+## 🎯 Project Objectives
 
-### 1. 🛠️ Network Design & Implementation
-- Developed a basic IT/OT network with:
-  - Windows Server with AD DS, DNS, DHCP
-  - Siemens S7-1200 PLC and Simatic HMI
-  - FortiGate firewall bridging IT and OT zones
-  - Splunk for centralized log monitoring
-  - SCADA solution using Ignition
-
-### 2. 🚨 Exploitation Phase
-Simulated internal and external attacks:
-- **Command & Control:** Python-based DNS-tunneled C2 server
-- **VPN Credential Theft:** Exploited CVE-2018-13379 & CVE-2018-13382 in FortiOS
-- **MAC Flooding:** Used Yersinia to force switch into hub mode and sniff credentials
-- **Rogue DHCP:** Redirected client traffic using spoofed DHCP responses
-- **PLC DoS:** Crashed industrial process by flooding Siemens PLC
-
-### 3. 🔐 Hardened Network Redesign
-Redesigned the network with security-first principles:
-- Conducted a risk-based SL-T assessment aligned with IEC 62443-3-2
-- Segmented devices into zones (Enterprise, IDMZ, Supervisory Control, Process Control)
-- Established conduits using firewalls and VLANs
-- Implemented endpoint protection, switch hardening, and strict firewall policies
+- Design and implement a hybrid IT/OT network with real and virtualized components
+- Execute internal and external cyberattacks to evaluate vulnerabilities
+- Conduct a security assessment aligned with IEC 62443 standards
+- Redesign the network to meet SL-Ts (Security Level Targets) with proper segmentation and defense-in-depth
+- Present a live demo, detailed report, and technical documentation
 
 ---
 
-## ⚙️ Key Technologies
+## 🛠️ Project Phases
 
-- **Cybersecurity:** FortiGate, FortiClient EMS, FortiAnalyzer, Snort, T-Pot Honeypot
-- **Networking:** Cisco switching, VLAN segmentation, VPN tunnels
-- **Industrial:** Siemens S7-1200 PLC, Simatic HMI, Ignition SCADA
-- **Monitoring:** Splunk, Fortinet logging, ELK stack
-- **Attack Tools:** Yersinia, hping3, Scapy, Burp Suite
+### 🔹 Phase 1: Basic Network & Exploitation
+- Flat architecture with minimal segmentation
+- Featured insecure protocols (e.g., Modbus TCP), missing endpoint protection, open routing
+- Simulated attacks:
+  - MAC flooding using Yersinia
+  - Rogue DHCP via packet spoofing
+  - CVE-2018-13379 & 13382 exploit on FortiGate VPN
+  - DNS-based Command and Control (C2) with Python and GitHub API
+  - PLC DoS through traffic flooding
+
+### 🔹 Phase 2: Risk Assessment & IEC 62443 Alignment
+- Conducted detailed threat modeling and risk analysis per IEC 62443-3-2
+- Created zone and conduit diagrams
+- Identified vulnerabilities from poor design (e.g., no RBAC, flat VLANs)
+
+### 🔹 Phase 3: Advanced Network Redesign
+- Introduced segmented zones: Enterprise, IDMZ, DMZ, Control, OT
+- Enforced Role-Based Access Control (RBAC) and firewall ACLs
+- Deployed defensive measures:
+  - FortiClient EMS, FortiAnalyzer, Snort, T-Pot honeypot
+  - VLAN segmentation, switch port security, endpoint lockdown
+  - SCADA & Historian for data logging and monitoring
 
 ---
 
-## 🧠 Risk Assessment & Security Levels
+## 🧰 Tools & Technologies
 
-Following ISA/IEC-62443:
-- Created asset inventory and risk matrix
-- Quantified worst-case impacts (financial, safety, operational)
-- Assigned Security Level Targets (SL-Ts) to each zone
-- Built hardened architecture aligned to those SL-Ts
+| Category | Tools |
+|---|---|
+| **Virtualization** | VMware Workstation |
+| **Cybersecurity** | FortiGate, FortiAnalyzer, FortiClient EMS, Snort, T-Pot |
+| **SIEM/Monitoring** | Splunk, ELK Stack |
+| **ICS/OT** | Siemens S7-1200 PLC, Simatic HMI, Ignition SCADA, Factory I/O |
+| **Penetration Testing** | Burp Suite, hping3, Yersinia, Python, Scapy |
 
 ---
 
-## 📊 Project Management
+## 🧩 Project Architecture
 
-Utilized project management tools to stay on schedule:
-- Deliverables included proposals, demos, presentations, and this report
-- Gantt charts and WBS used to coordinate tasks and milestones
+**Basic Network:**  
+- Vulnerable design with poor segmentation, unencrypted protocols, and legacy configurations
+- Minimal protections and default settings used intentionally for testing
+
+**Advanced Network:**  
+- Fully segmented per Purdue Model
+- Zones included: IT, IDMZ, DMZ, Control, OT
+- Enforced communication via monitored conduits
+- Included secure remote access, SIEM, honeypot, and endpoint defense
+
+---
+
+## 🔐 IEC 62443 Compliance Strategy
+
+- Mapped all assets into appropriate zones
+- Defined security levels (SL-T) for each zone based on risk
+- Applied:
+  - Zone-based segmentation
+  - Conduits with FortiGate firewall filtering
+  - RBAC and AAA framework
+  - IDS/IPS at communication boundaries
+
+---
+
+## 🗓️ Project Timeline
+
+| Deliverable | Due Date | Status |
+|------------|----------|--------|
+| Team Charter | Apr 29 | ✅ Complete |
+| Proposal | May 9 | ✅ Complete |
+| Annotated Bibliography | May 9 | ✅ Complete |
+| Basic Network Demo | May 13 | ✅ Complete |
+| Presentation | May 20 | ✅ Complete |
+| Final Report | May 28 | ✅ Complete |
+
+---
+
+## 📊 Work Breakdown & Challenges
+
+- Tasks were managed using WBS and Gantt charts
+- Key challenges:
+  - Shortened timeline (4 weeks instead of 5)
+  - Learning new tools (TIA Portal, Ignition)
+  - Limited internet access temporarily in lab
+- Mitigation strategies included daily standups, external documentation, and effective resource allocation
+
+---
+
+## 🧠 Team Reflections
+
+- **Vincent:** Focused on network design, IDS, and honeypot setup
+- **Jayson:** Led Fortinet deployments and Python/C2 programming
+- **Santiago:** Managed IEC compliance and OT integration
+
+Each team member contributed across disciplines, ensuring the final solution was realistic, defensible, and portfolio-ready.
 
 ---
 
@@ -82,28 +126,28 @@ Utilized project management tools to stay on schedule:
 
 ```
 📦 IT-OT-Convergence-Security-Project/
-├── README.md                # Project overview
-├── LICENSE                  # MIT License
-├── .gitignore               # Git ignored files
+├── README.md                # This document
+├── LICENSE                  # Project license (MIT)
+├── .gitignore               # Git exclusion rules
 ├── appendix/
-│   ├── PLC_Program.md       # Ladder logic overview
-│   └── Python_Attacks.md    # Details on Python C2/attacks
-└── references.md            # All source material
+│   ├── PLC_Program.md       # PLC design & automation process
+│   └── Python_Attacks.md    # Details on attack code
+└── references.md            # Full bibliography and source links
 ```
 
 ---
 
 ## 📚 References
 
-Sources include:
-- Fortinet vulnerability disclosures
-- International Society of Automation (ISA)
-- ICS security research GitHub repos
-- IEC 62443 documentation and course material
+- Fortinet Security Advisories
+- IEC 62443 documentation
+- Purdue Model ICS architecture
+- GitHub: ICS-Security-Tools, Honeypot-Scripts
+- ISA Training Material
 
 ---
 
-## 📄 License
+## 📝 License
 
 This project is licensed under the [MIT License](LICENSE).
 
@@ -111,4 +155,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
-Special thanks to our instructors and peers at BCIT, and to the open-source and cybersecurity communities whose tools and guidance shaped this work.
+Thanks to the BCIT instructors for their guidance, and to open-source communities whose tools and frameworks made this project possible.
