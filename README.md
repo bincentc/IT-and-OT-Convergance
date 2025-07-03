@@ -89,13 +89,6 @@ The goal: **Build a vulnerable network, exploit it using real-world attack vecto
 
 ---
 
-## 📌 Next Steps
-
-I plan to expand this project into a **homelab series** and deeper security research.  
-Connect with me here on GitHub or [LinkedIn](#) if you’d like to collaborate!
-
----
-
 **_Designed, tested, and defended by_**  
 Vincent Caluyo, Santiago Juarez, Jayson Peters  
 BCIT Industrial Network Cybersecurity | May 2025
