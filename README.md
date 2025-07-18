@@ -60,15 +60,6 @@ The goal: **Build a vulnerable network, exploit it using real-world attack vecto
 
 ---
 
-## 📁 Repo Contents
-
-- `/docs` – Full final report (PDF)
-- `/images` – Network diagrams, screenshots
-- `/code` – Custom Python scripts for C2 server and attacks
-- `README.md` – This file
-
----
-
 ## 📜 References
 
 - ISA/IEC 62443 Industrial Automation and Control System Security Standard
